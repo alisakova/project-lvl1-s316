@@ -1,8 +1,10 @@
 {
-  "name": "project-lvl1-s316",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "alisakova-project-hexlet",
+  "version": "2.0.0",
+  "description": "Small brain game",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
   "scripts": {
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
@@ -11,11 +13,16 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "es6",
+    "bash",
+    "game"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alisakova/project-lvl1-s316.git"
   },
-  "author": "",
+  "author": "Lisakova Anastasiia",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/alisakova/project-lvl1-s316/issues"
@@ -27,10 +34,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1"
   },
-  "bin": {
-    "brain-games": "dist/bin/brain-games.js"
-  },
   "dependencies": {
-    "alisakova-project-hexlet": "^1.0.0"
+    "readline-sync": "^1.4.9"
   }
 }
