@@ -4,6 +4,6 @@ const sayHello = () => {
   console.log('May I have your name?');
   const actual = readlineSync.question('Your answer: ');
   console.log(`Hello, ${actual}!`);
-}
+};
 
 export default sayHello;
