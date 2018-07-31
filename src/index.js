@@ -32,9 +32,6 @@ const isNumberEven = () => {
       return iter(counter + 1, randomNumber);
     }
     const correctAnswer = evenNumber ? 'yes' : 'no';
-    if (evenNumber && (userAnswer !== 'yes' || userAnswer !== 'no')) {
-      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
-    }
     return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
   };
   return iter(0, randomNumber);
