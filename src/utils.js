@@ -31,10 +31,17 @@ export const writeCongratulations = name => console.log(`Congratulations, ${name
 
 export const writeLoss = (correctAnswer, userAnswer, name) => console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`);
 
-export const sayWelcome = () => console.log('Welcome to the Brain Games!');
+export const sayWelcome = welcomePhrase => console.log(`Welcome to the Brain Games!\n${welcomePhrase}`);
 
 export const sayHello = () => {
   console.log('May I have your name?');
   const actual = readlineSync.question('Your name: ');
   console.log(`Hello, ${actual}!`);
+};
+
+export const getGCD = (a, b) => {
+  if (a === 0) {
+    return b;
+  }
+  return getGCD(b % a, a);
 };
