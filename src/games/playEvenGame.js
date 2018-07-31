@@ -26,11 +26,12 @@ const playEvenGame = () => {
     question = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
-      return iter(counter + 1);
+      iter(counter + 1);
+    } else {
+      writeLoss(correctAnswer, userAnswer, userName);
     }
-    writeLoss(correctAnswer, userAnswer, userName);
   };
-  return iter(0);
+  iter(0);
 };
 
 export default playEvenGame;
