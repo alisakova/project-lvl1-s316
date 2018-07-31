@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import makeCalculating from '../games/index';
+import makeCalculating from '../games/makeCalculating';
 
 makeCalculating();
