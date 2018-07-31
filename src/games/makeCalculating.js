@@ -10,19 +10,19 @@ import {
   MAX_NUMBER,
 } from '../utils';
 
+const description = 'What is the result of the expression?';
+
 const makeCalculating = () => {
-  const welcomePhrase = 'What is the result of the expression?';
-  sayWelcome(welcomePhrase);
+  sayWelcome(description);
   const userName = getUserName();
   const a = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
   const b = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  let userAnswer;
   const iter = (counter, num1, num2) => {
     if (counter === 3) {
       return writeCongratulations(userName);
     }
     const result = getOperationMark(num1, num2);
-    userAnswer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
     const newNum1 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
     const newNum2 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
     if (result.toString() === userAnswer) {

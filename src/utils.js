@@ -31,7 +31,7 @@ export const writeCongratulations = name => console.log(`Congratulations, ${name
 
 export const writeLoss = (correctAnswer, userAnswer, name) => console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`);
 
-export const sayWelcome = welcomePhrase => console.log(`Welcome to the Brain Games!\n${welcomePhrase}`);
+export const sayWelcome = description => console.log(`Welcome to the Brain Games!\n${description}`);
 
 export const sayHello = () => {
   console.log('May I have your name?');

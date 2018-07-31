@@ -10,9 +10,10 @@ import {
   getGCD,
 } from '../utils';
 
+const description = 'Find the greatest common divisor of given numbers.';
+
 const playGCDGame = () => {
-  const welcomePhrase = 'Find the greatest common divisor of given numbers.';
-  sayWelcome(welcomePhrase);
+  sayWelcome(description);
   const userName = getUserName();
   const a = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
   const b = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
