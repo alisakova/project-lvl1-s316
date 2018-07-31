@@ -1,19 +1,22 @@
 import readlineSync from 'readline-sync';
 
-const sayHello = () => {
+const MIN_NUMBER = 0;
+const MAX_NUMBER = 100;
+
+const getRandomNumber = (min, max) => Number((Math.random() * (max - min) + min).toFixed(0));
+
+const getUserName = () => {
   console.log('May I have your name?');
-  const actual = readlineSync.question('Your name: ');
-  console.log(`Hello, ${actual}!`);
+  const name = readlineSync.question('Your name: ');
+  console.log(`Hello, ${name}!`);
+  return name;
 };
 
-export const isNumberEven = () => {
+const isNumberEven = () => {
   console.log('Welcome to the Brain Games!');
   console.log('Answer "yes" if number even otherwise answer "no"');
-  // sayHello();
-  console.log('May I have your name?');
-  const userName = readlineSync.question('Your name: ');
-  console.log(`Hello, ${userName}!`);
-  let randomNumber = Math.floor(Math.random() * 100);
+  const userName = getUserName();
+  let randomNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
   let userAnswer;
   const iter = (counter, acc) => {
     if (counter === 3) {
@@ -23,15 +26,18 @@ export const isNumberEven = () => {
     userAnswer = readlineSync.question('Your answer: ');
     const evenNumber = acc % 2 === 0;
     const oddNumber = acc % 2 !== 0;
-    randomNumber = Math.floor(Math.random() * 100);
+    randomNumber = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
     if ((evenNumber && userAnswer === 'yes') || (oddNumber && userAnswer === 'no')) {
       console.log('Correct!');
       return iter(counter + 1, randomNumber);
     }
-    const correctAnswer = userAnswer === 'yes' ? 'no' : 'yes';
+    const correctAnswer = evenNumber ? 'yes' : 'no';
+    if (evenNumber && (userAnswer !== 'yes' || userAnswer !== 'no')) {
+      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
+    }
     return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
   };
   return iter(0, randomNumber);
 };
 
-export default sayHello;
+export default isNumberEven;
