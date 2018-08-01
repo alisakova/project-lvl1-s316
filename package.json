@@ -1,6 +1,6 @@
 {
   "name": "alisakova-project-hexlet",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "description": "Small brain game",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",

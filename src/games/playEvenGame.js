@@ -7,6 +7,8 @@ import {
   writeLoss,
   MIN_NUMBER,
   MAX_NUMBER,
+  GAME_STEPS,
+  isEven,
 } from '../utils';
 
 const description = 'Answer "yes" if number even otherwise answer "no"';
@@ -14,16 +16,15 @@ const description = 'Answer "yes" if number even otherwise answer "no"';
 const playEvenGame = () => {
   sayWelcome(description);
   const userName = getUserName();
-  let question = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
   const iter = (counter) => {
-    if (counter === 3) {
+    if (counter === GAME_STEPS) {
       writeCongratulations(userName);
       return;
     }
+    const question = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = question % 2 === 0 ? 'yes' : 'no';
-    question = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+    const correctAnswer = isEven(question);
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
       iter(counter + 1);

@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 
 export const MIN_NUMBER = 0;
 export const MAX_NUMBER = 100;
+export const GAME_STEPS = 3;
 const OPERATION_MARKS = ['+', '-', '*'];
 
 export const getRandomNumber = (min, max) => Number((Math.random() * (max - min) + min).toFixed(0));
@@ -19,6 +20,8 @@ export const getOperationMark = (a, b) => {
   console.log(`Question: ${a} * ${b}`);
   return a * b;
 };
+
+export const isEven = number => (number % 2 === 0 ? 'yes' : 'no');
 
 export const getUserName = () => {
   console.log('May I have your name?');
