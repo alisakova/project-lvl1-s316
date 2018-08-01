@@ -1,10 +1,7 @@
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
+import gameFlow from '../gameFlow';
 import {
   getRandomNumber,
-  getUserName,
-  sayWelcome,
-  writeCongratulations,
-  writeLoss,
   MIN_NUMBER,
   MAX_NUMBER,
   getGCD,
@@ -13,27 +10,11 @@ import {
 const description = 'Find the greatest common divisor of given numbers.';
 
 const playGCDGame = () => {
-  sayWelcome(description);
-  const userName = getUserName();
-  const a = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  const b = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  let userAnswer;
-  const iter = (counter, num1, num2) => {
-    if (counter === 3) {
-      return writeCongratulations(userName);
-    }
-    const result = getGCD(num1, num2);
-    console.log(`Question: ${num1} ${num2}`);
-    userAnswer = readlineSync.question('Your answer: ');
-    const newNum1 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-    const newNum2 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-    if (result.toString() === userAnswer) {
-      console.log('Correct!');
-      return iter(counter + 1, newNum1, newNum2);
-    }
-    return writeLoss(result, userAnswer, userName);
-  };
-  return iter(0, a, b);
+  const num1 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+  const num2 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+  const question = `Question: ${num1} ${num2}`;
+  const correctAnswer = getGCD(num1, num2);
+  return cons(question, String(correctAnswer));
 };
 
-export default playGCDGame;
+export default () => gameFlow(description, playGCDGame);
