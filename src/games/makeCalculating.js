@@ -1,19 +1,34 @@
 import { cons } from 'hexlet-pairs';
 import gameFlow from '../gameFlow';
-import {
-  getRandomNumber,
-  MIN_NUMBER,
-  MAX_NUMBER,
-  getCalc,
-} from '../utils';
+import getRandomNumber from '../utils';
 
+const minNumber = 0;
+const maxNumber = 100;
 const description = 'What is the result of the expression?';
-const OPERATION_MARKS = ['+', '-', '*'];
+const operationMarks = ['+', '-', '*'];
+
+const getCalc = (mathOperator, num1, num2) => {
+  let correctAnswer;
+  switch (mathOperator) {
+    case '+':
+      correctAnswer = String(num1 + num2);
+      break;
+    case '-':
+      correctAnswer = String(num1 - num2);
+      break;
+    case '*':
+      correctAnswer = String(num1 * num2);
+      break;
+    default:
+      correctAnswer = 0;
+  }
+  return correctAnswer;
+};
 
 const makeCalculating = () => {
-  const num1 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  const num2 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  const action = OPERATION_MARKS[getRandomNumber(0, 2)];
+  const num1 = getRandomNumber(minNumber, maxNumber);
+  const num2 = getRandomNumber(minNumber, maxNumber);
+  const action = operationMarks[getRandomNumber(0, 2)];
   const question = `${num1} ${action} ${num2}`;
   const correctAnswer = getCalc(action, num1, num2);
   return cons(question, correctAnswer);

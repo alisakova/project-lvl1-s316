@@ -1,19 +1,26 @@
 import readlineSync from 'readline-sync';
 import { cdr, car } from 'hexlet-pairs';
-import {
-  getUserName,
-  sayWelcome,
-  writeCongratulations,
-  writeLoss,
-} from './utils';
 
-const GAME_STEPS = 3;
+const gameSteps = 3;
+
+const writeCongratulations = name => console.log(`Congratulations, ${name}`);
+
+const writeLoss = (correctAnswer, userAnswer, name) => console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`);
+
+const sayWelcome = description => console.log(`Welcome to the Brain Games!\n${description}`);
+
+const getUserName = () => {
+  console.log('May I have your name?');
+  const name = readlineSync.question('Your name: ');
+  console.log(`Hello, ${name}!`);
+  return name;
+};
 
 const gameFlow = (gameRule, game) => {
   sayWelcome(gameRule);
   const userName = getUserName();
   const iter = (counter) => {
-    if (counter === GAME_STEPS) {
+    if (counter === gameSteps) {
       writeCongratulations(userName);
       return;
     }

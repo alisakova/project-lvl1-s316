@@ -1,17 +1,15 @@
 import { cons } from 'hexlet-pairs';
 import gameFlow from '../gameFlow';
-import {
-  getRandomNumber,
-  MIN_NUMBER,
-  MAX_NUMBER,
-} from '../utils';
+import getRandomNumber from '../utils';
 
+const minNumber = 0;
+const maxNumber = 100;
 const description = 'Answer "yes" if number even otherwise answer "no"';
+const isEven = num => num % 2 === 0;
 
 const playEvenGame = () => {
-  const question = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  const isEven = question % 2 === 0;
-  const correctAnswer = isEven ? 'yes' : 'no';
+  const question = getRandomNumber(minNumber, maxNumber);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 
