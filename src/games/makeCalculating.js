@@ -1,37 +1,22 @@
-import readlineSync from 'readline-sync';
+import { cons } from 'hexlet-pairs';
+import gameFlow from '../gameFlow';
 import {
   getRandomNumber,
-  getOperationMark,
-  getUserName,
-  sayWelcome,
-  writeCongratulations,
-  writeLoss,
   MIN_NUMBER,
   MAX_NUMBER,
+  getCalc,
 } from '../utils';
 
 const description = 'What is the result of the expression?';
+const OPERATION_MARKS = ['+', '-', '*'];
 
 const makeCalculating = () => {
-  sayWelcome(description);
-  const userName = getUserName();
-  const a = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  const b = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-  const iter = (counter, num1, num2) => {
-    if (counter === 3) {
-      return writeCongratulations(userName);
-    }
-    const result = getOperationMark(num1, num2);
-    const userAnswer = readlineSync.question('Your answer: ');
-    const newNum1 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-    const newNum2 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
-    if (result.toString() === userAnswer) {
-      console.log('Correct!');
-      return iter(counter + 1, newNum1, newNum2);
-    }
-    return writeLoss(result, userAnswer, userName);
-  };
-  return iter(0, a, b);
+  const num1 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+  const num2 = getRandomNumber(MIN_NUMBER, MAX_NUMBER);
+  const action = OPERATION_MARKS[getRandomNumber(0, 2)];
+  const question = `${num1} ${action} ${num2}`;
+  const correctAnswer = getCalc(action, num1, num2);
+  return cons(question, correctAnswer);
 };
 
-export default makeCalculating;
+export default () => gameFlow(description, makeCalculating);

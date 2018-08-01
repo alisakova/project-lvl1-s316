@@ -2,26 +2,8 @@ import readlineSync from 'readline-sync';
 
 export const MIN_NUMBER = 0;
 export const MAX_NUMBER = 100;
-export const GAME_STEPS = 3;
-const OPERATION_MARKS = ['+', '-', '*'];
 
 export const getRandomNumber = (min, max) => Number((Math.random() * (max - min) + min).toFixed(0));
-
-export const getOperationMark = (a, b) => {
-  const mathOperator = getRandomNumber(0, OPERATION_MARKS.length + 1);
-  if (OPERATION_MARKS[mathOperator] === '+') {
-    console.log(`Question: ${a} + ${b}`);
-    return a + b;
-  }
-  if (OPERATION_MARKS[mathOperator] === '-') {
-    console.log(`Question: ${a} - ${b}`);
-    return a - b;
-  }
-  console.log(`Question: ${a} * ${b}`);
-  return a * b;
-};
-
-export const isEven = number => (number % 2 === 0 ? 'yes' : 'no');
 
 export const getUserName = () => {
   console.log('May I have your name?');
@@ -47,4 +29,22 @@ export const getGCD = (a, b) => {
     return b;
   }
   return getGCD(b % a, a);
+};
+
+export const getCalc = (mathOperator, num1, num2) => {
+  let correctAnswer;
+  switch (mathOperator) {
+    case '+':
+      correctAnswer = String(num1 + num2);
+      break;
+    case '-':
+      correctAnswer = String(num1 - num2);
+      break;
+    case '*':
+      correctAnswer = String(num1 * num2);
+      break;
+    default:
+      correctAnswer = 0;
+  }
+  return correctAnswer;
 };
