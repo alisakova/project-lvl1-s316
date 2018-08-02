@@ -11,13 +11,13 @@ const getCalc = (mathOperator, num1, num2) => {
   let correctAnswer;
   switch (mathOperator) {
     case '+':
-      correctAnswer = String(num1 + num2);
+      correctAnswer = num1 + num2;
       break;
     case '-':
-      correctAnswer = String(num1 - num2);
+      correctAnswer = num1 - num2;
       break;
     case '*':
-      correctAnswer = String(num1 * num2);
+      correctAnswer = num1 * num2;
       break;
     default:
       correctAnswer = 0;
@@ -30,7 +30,7 @@ const makeCalculating = () => {
   const num2 = getRandomNumber(minNumber, maxNumber);
   const action = operationMarks[getRandomNumber(0, 2)];
   const question = `${num1} ${action} ${num2}`;
-  const correctAnswer = getCalc(action, num1, num2);
+  const correctAnswer = String(getCalc(action, num1, num2));
   return cons(question, correctAnswer);
 };
 
