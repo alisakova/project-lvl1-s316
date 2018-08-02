@@ -4,7 +4,7 @@ import getRandomNumber from '../utils';
 
 const minNumber = 0;
 const maxNumber = 10;
-const description = 'Balance the given number.';
+const description = 'What number is missing in this progression?';
 
 const makeRandomArray = () => {
   const diff = getRandomNumber(minNumber, maxNumber);
