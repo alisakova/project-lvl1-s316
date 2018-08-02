@@ -21,10 +21,25 @@ const getNewArr = (array) => {
   return getNewArr(array);
 };
 
+const getNewArray = (array) => {
+  if (isDiffIsOne(array)) {
+    return array.sort(getSortArr).join('');
+  }
+  const newArray = array;
+  const min = Math.min(...array);
+  const max = Math.max(...array);
+  console.log(newArray);
+  newArray[newArray.indexOf(min)] = min + 1;
+  newArray[newArray.indexOf(max)] = max - 1;
+  console.log(newArray);
+  return newArray;
+};
+
 const getBalance = (num) => {
   const stringNum = String(num);
   const newArray = stringNum.split('').map(Number);
-  const replacedArr = getNewArr(newArray);
+  const replacedArr = getNewArray(newArray);
+  console.log(replacedArr);
   return replacedArr;
 };
 
