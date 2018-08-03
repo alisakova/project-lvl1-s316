@@ -12,7 +12,7 @@ How to install?
 
 Is this number is even?
 -----------------------------------
-_The even number divisible by zero without a modulo
+_The even number divisible by zero without a modulo_
 *How to play? 
 `brain-even`
 *How to answer? 
