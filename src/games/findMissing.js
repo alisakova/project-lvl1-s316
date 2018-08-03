@@ -4,24 +4,24 @@ import getRandomNumber from '../utils';
 
 const minNumber = 1;
 const maxNumber = 10;
+const arrayLength = 10;
 const description = 'What number is missing in this progression?';
 
-const generateProgression = () => {
-  const diff = getRandomNumber(minNumber, maxNumber);
-  const firstElement = getRandomNumber(0, 5);
-  const array = [firstElement];
+const generateProgression = (firstElement, step, length) => {
   const iter = (counter, acc) => {
-    if (counter === 10) {
+    if (counter === length) {
       return acc;
     }
-    const newArray = acc.concat(acc[counter - 1] + diff);
+    const newArray = acc.concat(acc[counter - 1] + step);
     return iter(counter + 1, newArray);
   };
-  return iter(1, array);
+  return iter(1, [firstElement]);
 };
 
 const replaceElement = () => {
-  const array = generateProgression();
+  const diff = getRandomNumber(minNumber, maxNumber);
+  const firstElement = getRandomNumber(0, 5);
+  const array = generateProgression(firstElement, diff, arrayLength);
   const index = getRandomNumber(0, 9);
   const replacedElement = String(array[index]);
   array[index] = '..';
