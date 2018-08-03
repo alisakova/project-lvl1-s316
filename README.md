@@ -1,6 +1,6 @@
 Brain games
 =====================
-Let's try to solve some mathematical tasks in your terminal
+Let's try to solve some mathematical problems in your terminal
 
 How to install?
 `npm i alisakova-project-hexlet`
