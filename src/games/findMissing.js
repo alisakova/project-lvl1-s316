@@ -23,9 +23,9 @@ const generateProgression = () => {
 const replaceElement = () => {
   const array = generateProgression();
   const index = getRandomNumber(0, 9);
-  const missingElement = String(array[index]);
+  const replacedElement = String(array[index]);
   array[index] = '..';
-  return cons(array, missingElement);
+  return cons(array, replacedElement);
 };
 
 const findMissing = () => {
