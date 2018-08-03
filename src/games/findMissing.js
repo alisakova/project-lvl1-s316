@@ -18,18 +18,19 @@ const generateProgression = (firstElement, step, length) => {
   return iter(1, [firstElement]);
 };
 
-const replaceElement = () => {
+const getArrayWithReplacedElement = (array, index) => {
+  const arrayWithReplacedElement = array.slice();
+  const replacedElement = String(array[index]);
+  arrayWithReplacedElement[index] = '..';
+  return cons(arrayWithReplacedElement, replacedElement);
+};
+
+const findMissing = () => {
   const diff = getRandomNumber(minNumber, maxNumber);
   const firstElement = getRandomNumber(0, 5);
   const array = generateProgression(firstElement, diff, arrayLength);
   const index = getRandomNumber(0, 9);
-  const replacedElement = String(array[index]);
-  array[index] = '..';
-  return cons(array, replacedElement);
-};
-
-const findMissing = () => {
-  const result = replaceElement();
+  const result = getArrayWithReplacedElement(array, index);
   const question = car(result);
   const correctAnswer = cdr(result);
   return cons(question, correctAnswer);
