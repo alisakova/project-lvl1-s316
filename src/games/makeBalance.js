@@ -8,22 +8,24 @@ const description = 'Balance the given number.';
 
 const isDiffIsOne = array => Math.max(...array) - Math.min(...array) === 1;
 
-// const getSortArr = (array) => {
-//   let min = array[0];
-//   console.log(`${array} до сортировки`);
-//   for (let i = 1; i < array.length; i += 1) {
-//     if (array[i] < min) {
-//       min = array[i];
-//     }
-//   }
-//   console.log(array);
-//   return array;
-// };
+const getSortArr = (array) => {
+  const sortArray = array;
+  console.log(`${array} до сортировки`);
+  for (let i = 1; i <= sortArray.length; i += 1) {
+    if (sortArray[i - 1] > sortArray[i]) {
+      const el = sortArray[i - 1];
+      sortArray[i - 1] = sortArray[i];
+      sortArray[i] = el;
+    }
+  }
+  console.log(array);
+  return sortArray;
+};
 
 const getNewArray = (array) => {
   if (isDiffIsOne(array)) {
-    // const newArray = getSortArr(array);
-    return array.join('');
+    const newArray = getSortArr(array);
+    return newArray.join('');
   }
   const newArray = array;
   const min = Math.min(...array);
