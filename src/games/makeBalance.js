@@ -6,46 +6,48 @@ const minNumber = 0;
 const maxNumber = 1000;
 const description = 'Balance the given number.';
 
-const getSortArr = (num1, num2) => num1 - num2;
+const isDiffIsOne = array => Math.max(...array) - Math.min(...array) === 1;
 
-const isDiffIsOne = array => (Math.max(...array) - Math.min(...array)) === 1;
-
-const getNewArr = (array) => {
-  if (isDiffIsOne(array)) {
-    return array.sort(getSortArr).join('');
+const getSortArr = (array) => {
+  let min = array[0];
+  let max = array[0];
+  for (let i = 1; i < array.length; i += 1) {
+    if (max < array[i]) {
+      max = array[i];
+    }
+    if (array[i] < min) {
+      min = array[i];
+    }
   }
-  const min = Math.min(...array);
-  const max = Math.max(...array);
-  array.splice(array.indexOf(min), 1, array[array.indexOf(min)] + 1);
-  array.splice(array.indexOf(max), 1, array[array.indexOf(max)] - 1);
-  return getNewArr(array);
+  return array;
 };
 
 const getNewArray = (array) => {
   if (isDiffIsOne(array)) {
-    return array.sort(getSortArr).join('');
+    const newArray = getSortArr(array);
+    return newArray.join('');
   }
-  const newArray = array;
+  const newArray = array.concat();
   const min = Math.min(...array);
   const max = Math.max(...array);
-  console.log(newArray);
-  newArray[newArray.indexOf(min)] = min + 1;
-  newArray[newArray.indexOf(max)] = max - 1;
-  console.log(newArray);
-  return newArray;
+  const indexOfMin = newArray.indexOf(min);
+  const indexOfMax = newArray.indexOf(max);
+  newArray[indexOfMin] += 1;
+  newArray[indexOfMax] -= 1;
+  return getNewArray(newArray);
 };
 
 const getBalance = (num) => {
   const stringNum = String(num);
   const newArray = stringNum.split('').map(Number);
   const replacedArr = getNewArray(newArray);
-  console.log(replacedArr);
   return replacedArr;
 };
 
 const makeBalance = () => {
   const question = getRandomNumber(minNumber, maxNumber);
   const correctAnswer = getBalance(question);
+  console.log(correctAnswer);
   return cons(question, correctAnswer);
 };
 
