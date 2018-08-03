@@ -8,44 +8,54 @@ const description = 'Balance the given number.';
 
 const isDiffIsOne = array => Math.max(...array) - Math.min(...array) === 1;
 
+const getNewArray = (array) => {
+  const iter = (counter, acc) => {
+    if (counter === array.length) {
+      const resultArray = acc.split('').map(Number);
+      return resultArray;
+    }
+    let newArray = acc;
+    newArray += array[counter];
+    return iter(counter + 1, newArray);
+  };
+  return iter(0, []);
+};
+
 const getSortArr = (array) => {
-  const sortArray = array;
+  const sortArray = getNewArray(array);
   for (let i = 1; i <= sortArray.length; i += 1) {
     if (sortArray[i - 1] > sortArray[i]) {
       const el = sortArray[i - 1];
       sortArray[i - 1] = sortArray[i];
       sortArray[i] = el;
+      console.log(sortArray);
     }
   }
   return sortArray;
 };
 
-const getNewArray = (array) => {
-  if (isDiffIsOne(array)) {
-    const newArray = getSortArr(array);
-    return newArray.join('');
-  }
+const getBalanceArray = (array) => {
+  const newArray = getNewArray(array);
   const iter = (counter, acc) => {
     if (isDiffIsOne(acc)) {
-      const newArray = getSortArr(acc);
-      return newArray.join('');
+      const balancedArray = getSortArr(acc);
+      return balancedArray.join('');
     }
-    const min = Math.min(...array);
-    const max = Math.max(...array);
-    const indexOfMin = newArray.indexOf(min);
-    const indexOfMax = newArray.indexOf(max);
-    newArray[indexOfMin] += 1;
-    newArray[indexOfMax] -= 1;
+    const min = Math.min(...acc);
+    const max = Math.max(...acc);
+    const indexOfMin = acc.indexOf(min);
+    const indexOfMax = acc.indexOf(max);
+    acc[indexOfMin] += 1;
+    acc[indexOfMax] -= 1;
+    return iter(counter + 1, acc);
   };
-  const newArray = array;
-
-  return getNewArray(newArray);
+  return iter(0, newArray);
 };
 
 const getBalance = (num) => {
   const stringNum = String(num);
   const newArray = stringNum.split('').map(Number);
-  const replacedArr = getNewArray(newArray);
+  const replacedArr = getBalanceArray(newArray);
   return replacedArr;
 };
 
