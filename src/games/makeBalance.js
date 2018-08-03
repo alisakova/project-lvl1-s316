@@ -27,7 +27,7 @@ const getNewArray = (array) => {
     const newArray = getSortArr(array);
     return newArray.join('');
   }
-  const newArray = array.concat();
+  const newArray = array;
   const min = Math.min(...array);
   const max = Math.max(...array);
   const indexOfMin = newArray.indexOf(min);
@@ -46,7 +46,7 @@ const getBalance = (num) => {
 
 const makeBalance = () => {
   const question = getRandomNumber(minNumber, maxNumber);
-  const correctAnswer = getBalance(question);
+  const correctAnswer = getBalance(215);
   console.log(correctAnswer);
   return cons(question, correctAnswer);
 };
