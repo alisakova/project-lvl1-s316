@@ -5,12 +5,51 @@
 
 Brain games
 =====================
-Let's try to solve some mathematical tasks.
+Let's try to solve some mathematical tasks in your terminal
 
 How to install?
 `npm i alisakova-project-hexlet`
 
-Brain-even
+Is this number is even?
 -----------------------------------
-How to play? 
+_The even number divisible by zero without a modulo
+*How to play? 
 `brain-even`
+*How to answer? 
+You should write in your terminal 'yes' or 'no'.
+
+
+What is the result of the expression?
+-----------------------------------
+*How to play? 
+`brain-calc`
+*How to answer? 
+You should write in your terminal the result of the expression.
+
+What is the greatest common divisor of given numbers?
+-----------------------------------
+*How to play? 
+`brain-gcd`
+*How to answer? 
+You should write in your terminal the greatest common divisor.
+
+Try to balance this number!
+-----------------------------------
+*How to play? 
+`brain-balance`
+*How to answer? 
+You should write in your terminal the balanced number.
+
+What number is missing in this progression?
+-----------------------------------
+*How to play? 
+`brain-progression`
+*How to answer? 
+You should write in your terminal the missing element.
+
+Is this number is prime?
+-----------------------------------
+*How to play? 
+`brain-prime`
+*How to answer? 
+You should write in your terminal 'yes' or 'no'.
