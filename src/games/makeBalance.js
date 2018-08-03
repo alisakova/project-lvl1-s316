@@ -10,7 +10,6 @@ const isDiffIsOne = array => Math.max(...array) - Math.min(...array) === 1;
 
 const getSortArr = (array) => {
   const sortArray = array;
-  console.log(`${array} до сортировки`);
   for (let i = 1; i <= sortArray.length; i += 1) {
     if (sortArray[i - 1] > sortArray[i]) {
       const el = sortArray[i - 1];
@@ -18,7 +17,6 @@ const getSortArr = (array) => {
       sortArray[i] = el;
     }
   }
-  console.log(array);
   return sortArray;
 };
 
@@ -46,8 +44,7 @@ const getBalance = (num) => {
 
 const makeBalance = () => {
   const question = getRandomNumber(minNumber, maxNumber);
-  const correctAnswer = getBalance(215);
-  console.log(correctAnswer);
+  const correctAnswer = getBalance(question);
   return cons(question, correctAnswer);
 };
 
