@@ -13,41 +13,41 @@ How to install?
 Is this number is even?
 -----------------------------------
 _The even number divisible by zero without a modulo_
-*How to play? `brain-even`
-*How to answer? You should write in your terminal 'yes' or 'no'.
+* How to play? `brain-even`
+* How to answer? You should write in your terminal 'yes' or 'no'.
 
 
 What is the result of the expression?
 -----------------------------------
-*How to play? 
+* How to play? 
 `brain-calc`
-*How to answer? 
+* How to answer? 
 You should write in your terminal the result of the expression.
 
 What is the greatest common divisor of given numbers?
 -----------------------------------
-*How to play? 
+* How to play? 
 `brain-gcd`
-*How to answer? 
+* How to answer? 
 You should write in your terminal the greatest common divisor.
 
 Try to balance this number!
 -----------------------------------
-*How to play? 
+* How to play? 
 `brain-balance`
-*How to answer? 
+* How to answer? 
 You should write in your terminal the balanced number.
 
 What number is missing in this progression?
 -----------------------------------
-*How to play? 
+* How to play? 
 `brain-progression`
-*How to answer? 
+* How to answer? 
 You should write in your terminal the missing element.
 
 Is this number is prime?
 -----------------------------------
-*How to play? 
+* How to play? 
 `brain-prime`
-*How to answer? 
+* How to answer? 
 You should write in your terminal 'yes' or 'no'.
