@@ -18,11 +18,11 @@ const generateProgression = (firstElement, step, length) => {
   return iter(1, [firstElement]);
 };
 
-const getArrayWithReplacedElement = (array, index) => {
-  const arrayWithReplacedElement = array.slice();
-  const replacedElement = String(array[index]);
-  arrayWithReplacedElement[index] = '..';
-  return cons(arrayWithReplacedElement, replacedElement);
+const getArrayWithReplacedElement = (array, hideIndex) => {
+  const addReplacedElement = (value, index) => (index === hideIndex ? '..' : value);
+  const newArray = array.map(addReplacedElement);
+  const replacedElement = String(array[hideIndex]);
+  return cons(newArray, replacedElement);
 };
 
 const findMissing = () => {

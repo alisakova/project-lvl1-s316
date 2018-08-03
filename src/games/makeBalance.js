@@ -25,13 +25,20 @@ const getNewArray = (array) => {
     const newArray = getSortArr(array);
     return newArray.join('');
   }
+  const iter = (counter, acc) => {
+    if (isDiffIsOne(acc)) {
+      const newArray = getSortArr(acc);
+      return newArray.join('');
+    }
+    const min = Math.min(...array);
+    const max = Math.max(...array);
+    const indexOfMin = newArray.indexOf(min);
+    const indexOfMax = newArray.indexOf(max);
+    newArray[indexOfMin] += 1;
+    newArray[indexOfMax] -= 1;
+  };
   const newArray = array;
-  const min = Math.min(...array);
-  const max = Math.max(...array);
-  const indexOfMin = newArray.indexOf(min);
-  const indexOfMax = newArray.indexOf(max);
-  newArray[indexOfMin] += 1;
-  newArray[indexOfMax] -= 1;
+
   return getNewArray(newArray);
 };
 
