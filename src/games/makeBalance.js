@@ -8,7 +8,7 @@ const description = 'Balance the given number.';
 
 const getSortArr = (num1, num2) => num1 - num2;
 
-const isDiffMoreOne = array => (Math.max(...array) - Math.min(...array)) === 1;
+const isDiffMoreOne = array => (Math.max(...array) - Math.min(...array)) > 1;
 
 const getNewArray = (array) => {
   const min = Math.min(...array);
