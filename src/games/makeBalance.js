@@ -30,7 +30,6 @@ const getBalance = (num) => {
 const makeBalance = () => {
   const question = getRandomNumber(minNumber, maxNumber);
   const correctAnswer = getBalance(question);
-  console.log(correctAnswer);
   return cons(question, correctAnswer);
 };
 
