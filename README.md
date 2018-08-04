@@ -55,7 +55,7 @@ Is this number is prime?
 * **How to answer?** 
 You should write in your terminal 'yes' or 'no'.
 
-![Example](https://media.giphy.com/media/e6aEecZ68UTBS9f9vD/giphy.gif)
+![Example](https://media.giphy.com/media/1zKA8NLG1ig4Zru3ai/giphy.gif)
 
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/bbaa70aa747d15555322/maintainability)](https://codeclimate.com/github/alisakova/project-lvl1-s316/maintainability)
